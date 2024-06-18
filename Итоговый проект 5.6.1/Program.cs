@@ -29,8 +29,8 @@ namespace Итоговый_проект_5._6._1
                 int petCount = GetPositiveNumber("Введите количество питомцев:");
                 petNames = GetNamesPet("Введите имя - имена питомцев:", petCount);
             }
-            int coutFavColors = GetPositiveNumber("Введите любимые цвета из предложенных:");
-            string[] favoriteColors = GetNameColor("Введите название цвета:", coutFavColors);
+            int coutFavColors = GetPositiveNumber("Введите количество цветов любимых:");
+            string[] favoriteColors = GetNameColor("Введите название цвета из предложенных:", coutFavColors);
             return (firstName, lastName, age, hasPet, petNames, favoriteColors);
         }
         static int GetPositiveNumber(string message)
@@ -65,7 +65,7 @@ namespace Итоговый_проект_5._6._1
                 {
                     Console.Write(colors[k] + " ");
                 }
-                Console.WriteLine($"{message} Писать английскими с заглавной например Red {i + 1}: ");
+                Console.WriteLine($"\n{message} Писать английскими с заглавной например Red {i + 1}: ");
                 while (true)
                 {
                     string color = Console.ReadLine();
