@@ -14,6 +14,10 @@ namespace Итоговый_проект_5._6._1
             ShowGetUserData(userData);
             Console.ReadKey();
         }
+        /// <summary>
+        /// Метод для добавления информации в кортеж
+        /// </summary>
+        /// <returns></returns>
         static (string firstName, string lastName, int age, bool hasPet, string[] petNames, string[] favoriteColors) GetUserData()
         {
             Console.WriteLine("Введите ваше имя:");
@@ -33,6 +37,11 @@ namespace Итоговый_проект_5._6._1
             string[] favoriteColors = GetNameColor("Введите название цвета из предложенных:", coutFavColors);
             return (firstName, lastName, age, hasPet, petNames, favoriteColors);
         }
+        /// <summary>
+        /// Метод для проверки правильности введеного числа
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
         static int GetPositiveNumber(string message)
         {
             Console.Write(message);
@@ -45,6 +54,12 @@ namespace Итоговый_проект_5._6._1
 
             }
         }
+        /// <summary>
+        /// Метод для добавления в массив кличек питомцев
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
         static string[] GetNamesPet(string message, int count)
         {
             Console.WriteLine(message);
@@ -55,6 +70,12 @@ namespace Итоговый_проект_5._6._1
             }
             return names;
         }
+        /// <summary>
+        /// Метод для добавления в массив любимых цветов
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
         static string[] GetNameColor(string message, int count)
         {
             string[] colors = { "Black", "DarkBlue", "DarkGreen", "Gray", "Blue", "Green", "Cyan", "Red", "Yellow", "White" };
@@ -85,6 +106,10 @@ namespace Итоговый_проект_5._6._1
             }
             return favColors;
         }
+        /// <summary>
+        /// метод для отображения информации о человеке через кортеж 
+        /// </summary>
+        /// <param name="userData"></param>
         static void ShowGetUserData((string firstName, string lastName, int age, bool hasPet, string[] petNames, string[] favoriteColors) userData)
         {
             //string colorName = userData.favoriteColors[0];
