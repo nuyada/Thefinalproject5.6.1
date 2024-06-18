@@ -21,7 +21,7 @@ namespace Итоговый_проект_5._6._1
             Console.WriteLine("Введите вашу фамилию:");
             string lastName = Console.ReadLine();
             int age = GetPositiveNumber("Введите ваш возраст:");
-            Console.WriteLine("Есть ли у вас домашние (да/нет)");
+            Console.WriteLine("Есть ли у вас домашние питомцы (да/нет)");
             bool hasPet =  Console.ReadLine().ToLower() == "да";
             string[] petNames = null;
             if (hasPet)
@@ -57,12 +57,26 @@ namespace Итоговый_проект_5._6._1
         }
         static string[] GetNameColor(string message, int count)
         {
+            string[] colors = { "Black", "DarkBlue", "DarkGreen", "DarkCyan", "DarkRed", "DarkMagenta", "DarkYellow", "Gray", "DarkGray", "Blue", "Green", "Cyan", "Red", "Magenta", "Yellow", "White" };
             string[] favColors = new string[count];
             for (int i = 0; i < favColors.Length; i++)
             {
                 Console.WriteLine($"{message} Писать английскими с заглавной например Red {i + 1}: ");
+                while (true)
+                {
+                    string color = Console.ReadLine();
+                    if (colors.Contains(color))
+                    {
+                        favColors[i] = color;
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("неверное имя цвета, введите заного например Red или Blue");
+                    }
+
+                }
                 
-                favColors[i] = Console.ReadLine();
                 
             }
             return favColors;
@@ -70,7 +84,8 @@ namespace Итоговый_проект_5._6._1
         static void ShowGetUserData((string firstName, string lastName, int age, bool hasPet, string[] petNames, string[] favoriteColors) userData)
         {
             string colorName = userData.favoriteColors[0];
-            
+            ConsoleColor color = (ConsoleColor)Enum.Parse(typeof(ConsoleColor), colorName);
+            Console.BackgroundColor = color;
             Console.WriteLine($"Имя: {userData.firstName}");
             Console.WriteLine($"Фамилия: {userData.lastName}");
             Console.WriteLine($"Возраст: {userData.age}");
