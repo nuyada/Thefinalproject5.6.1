@@ -22,21 +22,21 @@ namespace Итоговый_проект_5._6._1
             string lastName = Console.ReadLine();
             int age = GetPositiveNumber("Введите ваш возраст:");
             Console.WriteLine("Есть ли у вас домашние питомцы (да/нет)");
-            bool hasPet =  Console.ReadLine().ToLower() == "да";
+            bool hasPet = Console.ReadLine().ToLower() == "да";
             string[] petNames = null;
             if (hasPet)
             {
                 int petCount = GetPositiveNumber("Введите количество питомцев:");
                 petNames = GetNamesPet("Введите имя - имена питомцев:", petCount);
             }
-            int coutFavColors = GetPositiveNumber("Введите количество любимых цветов:");
+            int coutFavColors = GetPositiveNumber("Введите любимые цвета из предложенных:");
             string[] favoriteColors = GetNameColor("Введите название цвета:", coutFavColors);
             return (firstName, lastName, age, hasPet, petNames, favoriteColors);
         }
-        static int GetPositiveNumber( string message)
+        static int GetPositiveNumber(string message)
         {
             Console.Write(message);
-            
+
             while (true)
             {
                 string inputnum = Console.ReadLine();
@@ -45,11 +45,11 @@ namespace Итоговый_проект_5._6._1
 
             }
         }
-        static string[] GetNamesPet(string message, int count )
+        static string[] GetNamesPet(string message, int count)
         {
             Console.WriteLine(message);
             string[] names = new string[count];
-            for(int i =0; i< names.Length; i++)
+            for (int i = 0; i < names.Length; i++)
             {
                 names[i] = Console.ReadLine();
             }
@@ -57,10 +57,14 @@ namespace Итоговый_проект_5._6._1
         }
         static string[] GetNameColor(string message, int count)
         {
-            string[] colors = { "Black", "DarkBlue", "DarkGreen", "DarkCyan", "DarkRed", "DarkMagenta", "DarkYellow", "Gray", "DarkGray", "Blue", "Green", "Cyan", "Red", "Magenta", "Yellow", "White" };
+            string[] colors = { "Black", "DarkBlue", "DarkGreen", "Gray", "Blue", "Green", "Cyan", "Red", "Yellow", "White" };
             string[] favColors = new string[count];
             for (int i = 0; i < favColors.Length; i++)
             {
+                for (int k = 0; k < colors.Length; k++)
+                {
+                    Console.Write(colors[k] + " ");
+                }
                 Console.WriteLine($"{message} Писать английскими с заглавной например Red {i + 1}: ");
                 while (true)
                 {
@@ -72,38 +76,246 @@ namespace Итоговый_проект_5._6._1
                     }
                     else
                     {
-                        Console.WriteLine("неверное имя цвета, введите заного например Red или Blue");
+                        Console.WriteLine("неверное имя цвета, введите cнова например Red или Blue");
                     }
 
                 }
-                
-                
+
+
             }
             return favColors;
         }
         static void ShowGetUserData((string firstName, string lastName, int age, bool hasPet, string[] petNames, string[] favoriteColors) userData)
         {
-            string colorName = userData.favoriteColors[0];
-            ConsoleColor color = (ConsoleColor)Enum.Parse(typeof(ConsoleColor), colorName);
-            Console.BackgroundColor = color;
-            Console.WriteLine($"Имя: {userData.firstName}");
-            Console.WriteLine($"Фамилия: {userData.lastName}");
-            Console.WriteLine($"Возраст: {userData.age}");
-            if (userData.hasPet)
+            //string colorName = userData.favoriteColors[0];
+            // ConsoleColor color = (ConsoleColor)Enum.Parse(typeof(ConsoleColor), colorName);
+            // Console.BackgroundColor = color;
+            for (int i = 0; i < userData.favoriteColors.Length; i++)
             {
-                foreach(var name in userData.petNames)
+                switch (userData.favoriteColors[i])
                 {
-                    Console.WriteLine($"Кличка питомца {name}");
+                    case "Black":
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.WriteLine($"Имя: {userData.firstName}");
+                        Console.WriteLine($"Фамилия: {userData.lastName}");
+                        Console.WriteLine($"Возраст: {userData.age}");
+                        if (userData.hasPet)
+                        {
+                            foreach (var name in userData.petNames)
+                            {
+                                Console.WriteLine($"Кличка питомца {name}");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Нет домашних питомцев");
+                        }
+                        foreach (var name in userData.favoriteColors)
+                        {
+                            Console.WriteLine($"Любимый цвет {name}");
+                        }
+                        break;
+                    case "DarkBlue":
+                        Console.BackgroundColor = ConsoleColor.DarkBlue;
+
+                        Console.WriteLine($"Имя: {userData.firstName}");
+                        Console.WriteLine($"Фамилия: {userData.lastName}");
+                        Console.WriteLine($"Возраст: {userData.age}");
+                        if (userData.hasPet)
+                        {
+                            foreach (var name in userData.petNames)
+                            {
+                                Console.WriteLine($"Кличка питомца {name}");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Нет домашних питомцев");
+                        }
+                        foreach (var name in userData.favoriteColors)
+                        {
+                            Console.WriteLine($"Любимый цвет {name}");
+                        }
+                        break;
+                    case "DarkGreen":
+                        Console.BackgroundColor = ConsoleColor.DarkGreen;
+
+                        Console.WriteLine($"Имя: {userData.firstName}");
+                        Console.WriteLine($"Фамилия: {userData.lastName}");
+                        Console.WriteLine($"Возраст: {userData.age}");
+                        if (userData.hasPet)
+                        {
+                            foreach (var name in userData.petNames)
+                            {
+                                Console.WriteLine($"Кличка питомца {name}");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Нет домашних питомцев");
+                        }
+                        foreach (var name in userData.favoriteColors)
+                        {
+                            Console.WriteLine($"Любимый цвет {name}");
+                        }
+                        break;
+                    case "Gray":
+                        Console.BackgroundColor = ConsoleColor.Gray;
+
+                        Console.WriteLine($"Имя: {userData.firstName}");
+                        Console.WriteLine($"Фамилия: {userData.lastName}");
+                        Console.WriteLine($"Возраст: {userData.age}");
+                        if (userData.hasPet)
+                        {
+                            foreach (var name in userData.petNames)
+                            {
+                                Console.WriteLine($"Кличка питомца {name}");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Нет домашних питомцев");
+                        }
+                        foreach (var name in userData.favoriteColors)
+                        {
+                            Console.WriteLine($"Любимый цвет {name}");
+                        }
+                        break;
+                    case "Blue":
+                        Console.BackgroundColor = ConsoleColor.Blue;
+
+                        Console.WriteLine($"Имя: {userData.firstName}");
+                        Console.WriteLine($"Фамилия: {userData.lastName}");
+                        Console.WriteLine($"Возраст: {userData.age}");
+                        if (userData.hasPet)
+                        {
+                            foreach (var name in userData.petNames)
+                            {
+                                Console.WriteLine($"Кличка питомца {name}");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Нет домашних питомцев");
+                        }
+                        foreach (var name in userData.favoriteColors)
+                        {
+                            Console.WriteLine($"Любимый цвет {name}");
+                        }
+                        break;
+                    case "Green":
+                        Console.BackgroundColor = ConsoleColor.Green;
+
+                        Console.WriteLine($"Имя: {userData.firstName}");
+                        Console.WriteLine($"Фамилия: {userData.lastName}");
+                        Console.WriteLine($"Возраст: {userData.age}");
+                        if (userData.hasPet)
+                        {
+                            foreach (var name in userData.petNames)
+                            {
+                                Console.WriteLine($"Кличка питомца {name}");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Нет домашних питомцев");
+                        }
+                        foreach (var name in userData.favoriteColors)
+                        {
+                            Console.WriteLine($"Любимый цвет {name}");
+                        }
+                        break;
+                    case "Cyan":
+                        Console.BackgroundColor = ConsoleColor.Cyan;
+
+                        Console.WriteLine($"Имя: {userData.firstName}");
+                        Console.WriteLine($"Фамилия: {userData.lastName}");
+                        Console.WriteLine($"Возраст: {userData.age}");
+                        if (userData.hasPet)
+                        {
+                            foreach (var name in userData.petNames)
+                            {
+                                Console.WriteLine($"Кличка питомца {name}");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Нет домашних питомцев");
+                        }
+                        foreach (var name in userData.favoriteColors)
+                        {
+                            Console.WriteLine($"Любимый цвет {name}");
+                        }
+                        break;
+                    case "Red":
+                        Console.BackgroundColor = ConsoleColor.Red;
+
+                        Console.WriteLine($"Имя: {userData.firstName}");
+                        Console.WriteLine($"Фамилия: {userData.lastName}");
+                        Console.WriteLine($"Возраст: {userData.age}");
+                        if (userData.hasPet)
+                        {
+                            foreach (var name in userData.petNames)
+                            {
+                                Console.WriteLine($"Кличка питомца {name}");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Нет домашних питомцев");
+                        }
+                        foreach (var name in userData.favoriteColors)
+                        {
+                            Console.WriteLine($"Любимый цвет {name}");
+                        }
+                        break;
+                    case "Yellow":
+                        Console.BackgroundColor = ConsoleColor.Yellow;
+
+                        Console.WriteLine($"Имя: {userData.firstName}");
+                        Console.WriteLine($"Фамилия: {userData.lastName}");
+                        Console.WriteLine($"Возраст: {userData.age}");
+                        if (userData.hasPet)
+                        {
+                            foreach (var name in userData.petNames)
+                            {
+                                Console.WriteLine($"Кличка питомца {name}");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Нет домашних питомцев");
+                        }
+                        foreach (var name in userData.favoriteColors)
+                        {
+                            Console.WriteLine($"Любимый цвет {name}");
+                        }
+                        break;
+                    case "White":
+                        Console.BackgroundColor = ConsoleColor.White;
+
+                        Console.WriteLine($"Имя: {userData.firstName}");
+                        Console.WriteLine($"Фамилия: {userData.lastName}");
+                        Console.WriteLine($"Возраст: {userData.age}");
+                        if (userData.hasPet)
+                        {
+                            foreach (var name in userData.petNames)
+                            {
+                                Console.WriteLine($"Кличка питомца {name}");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Нет домашних питомцев");
+                        }
+                        foreach (var name in userData.favoriteColors)
+                        {
+                            Console.WriteLine($"Любимый цвет {name}");
+                        }
+                        break;
                 }
             }
-            else
-            {
-                Console.WriteLine("Нет домашних питомцев");
-            }
-            foreach (var name in userData.favoriteColors)
-            {
-                Console.WriteLine($"Любимый цвет {name}");
-            }
+
         }
 
 
