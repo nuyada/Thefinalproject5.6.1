@@ -21,7 +21,7 @@ namespace Итоговый_проект_5._6._1
             Console.WriteLine("Введите вашу фамилию:");
             string lastName = Console.ReadLine();
             int age = GetPositiveNumber("Введите ваш возраст:");
-            Console.WriteLine("Есть ли у вас домашние (да/нет)");
+            Console.WriteLine("Есть ли у вас домашние питомцы (да/нет)");
             bool hasPet =  Console.ReadLine().ToLower() == "да";
             string[] petNames = null;
             if (hasPet)
@@ -60,7 +60,7 @@ namespace Итоговый_проект_5._6._1
             string[] favColors = new string[count];
             for (int i = 0; i < favColors.Length; i++)
             {
-                Console.WriteLine($"{message} Писать английскими с заглавной например Red {i + 1}: ");
+                Console.WriteLine($"{message}  {i + 1}: ");
                 
                 favColors[i] = Console.ReadLine();
                 
@@ -69,7 +69,7 @@ namespace Итоговый_проект_5._6._1
         }
         static void ShowGetUserData((string firstName, string lastName, int age, bool hasPet, string[] petNames, string[] favoriteColors) userData)
         {
-            string colorName = userData.favoriteColors[0];
+            
             
             Console.WriteLine($"Имя: {userData.firstName}");
             Console.WriteLine($"Фамилия: {userData.lastName}");
